@@ -32,12 +32,12 @@ const BLOCK_EXPLORER_KEY = process.env.BLOCK_EXPLORER_KEY || '';
 
 const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   url: NETWORKS_RPC_URL[networkName] ?? '',
-  accounts: {
-    mnemonic: MNEMONIC,
-    path: MNEMONIC_PATH,
-    initialIndex: 0,
-    count: 20,
-  },
+  // accounts: {
+  //   mnemonic: MNEMONIC,
+  //   path: MNEMONIC_PATH,
+  //   initialIndex: 0,
+  //   count: 20,
+  // },
 });
 
 const mainnetFork = MAINNET_FORK
@@ -80,10 +80,10 @@ const config: HardhatUserConfig = {
       chainId: HARDHATEVM_CHAINID,
       throwOnTransactionFailures: true,
       throwOnCallFailures: true,
-      accounts: accounts.map(({ secretKey, balance }: { secretKey: string; balance: string }) => ({
-        privateKey: secretKey,
-        balance,
-      })),
+      // accounts: accounts.map(({ secretKey, balance }: { secretKey: string; balance: string }) => ({
+      //   privateKey: secretKey,
+      //   balance,
+      // })),
       forking: mainnetFork,
     },
   },
